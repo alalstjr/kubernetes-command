@@ -37,3 +37,34 @@ spec:
 ~~~
 
 sessionAffinity: ClientIP
+
+### EndPoint
+
+https://kubernetes.io/docs/concepts/services-networking/service/#endpoints
+
+~~~
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: my-service
+  labels:
+    kubernetes.io/service-name: my-service
+subsets:
+    - addresses:
+        - ip : 223.130.200.104
+        - ip : 199.201.110.204
+      ports:
+        - port: 80
+~~~
+
+POD 없는 서비스를 하나 만들고 엔드포인트를 만듭니다.
