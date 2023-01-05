@@ -15,7 +15,9 @@ https://kubernetes.io/ko/docs/home/
 
 > kubectl describe pod {pod 이름}
 
-쿠버네티스 pod 진행상황, 진행 로그 상세보기
+쿠버네티스 pod 진행상황, 진행 로그 상세보기 네임스페이스로 검색한다.
+
+> kubectl get all -n [namespace]
 
 ## 객체의 설정 업데이트
 
